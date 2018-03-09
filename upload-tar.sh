@@ -9,7 +9,7 @@ if [ $1x == "clean"x ];then
     echo "Cleaning remote packages before $nowDate."
     cleanfiles=`ssh $USER_SERVER "cd $SERVER_DIRECTORY && ls | grep -v $nowDate-"`
     for tf in $cleanfiles;do
-        ssh $USER_SERVER "cd $SERVER_DIRECTORY && rm $tf"
+        ssh $USER_SERVER "cd $SERVER_DIRECTORY && rm -v $tf"
     done
     echo "done."
     exit 0
@@ -19,7 +19,7 @@ if [ $1x == "cleanall"x ];then
     echo "Cleaning all the remote packages."
     cleanfiles=`ssh $USER_SERVER "cd $SERVER_DIRECTORY && ls"`
     for tf in $cleanfiles;do
-        ssh $USER_SERVER "cd $SERVER_DIRECTORY && rm $tf"
+        ssh $USER_SERVER "cd $SERVER_DIRECTORY && rm -v $tf"
     done
     echo "done."
     exit 0
