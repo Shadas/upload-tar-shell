@@ -15,6 +15,16 @@ if [ $1x == "clean"x ];then
     exit 0
 fi
 
+if [ $1x == "cleanall"x ];then
+    echo "Cleaning all the remote packages."
+    cleanfiles=`ssh $USER_SERVER "cd $SERVER_DIRECTORY && ls"`
+    for tf in $cleanfiles;do
+        ssh $USER_SERVER "cd $SERVER_DIRECTORY && rm $tf"
+    done
+    echo "done."
+    exit 0
+fi
+
 upload() {
     nowTime=$(date "+%Y_%m_%d-%H_%M_%S")
     echo "Uploading files at $nowTime."

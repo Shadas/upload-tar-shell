@@ -48,3 +48,9 @@ It will tar the UPLOAD_DIRECTORY as a tar.gz file and upload to the server.
 
 Clean the directory on the server. It will remove the packages uploaded before the current date.
 
+```
+./upload-tar.sh cleanall
+```
+
+Clean the directory on the server. It will remove all the packages for safety.
+
