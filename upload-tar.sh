@@ -30,6 +30,7 @@ upload() {
     echo "Uploading files at $nowTime."
     tmpfile=$nowTime.tar.gz
     tar zcfP $tmpfile $UPLOAD_DIRECTORY
+    ssh $USER_SERVER "mkdir -p $SERVER_DIRECTORY"
     scp ./$tmpfile $USER_SERVER:$SERVER_DIRECTORY
     rm ./$tmpfile
     echo "done."
